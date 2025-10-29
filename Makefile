@@ -8,3 +8,6 @@ execute: mainexe
 
 clean:
 	rm -f mainexe
+
+test:
+	g++ -g -Wall -std=c++14 SoftwareTest.cpp -o test.exe

@@ -1,7 +1,5 @@
-#include <iostream>
-#include <string>
+#include "Inventory.h"
 
-using namespace std;
 
 void printHelp()
 {
@@ -21,6 +19,7 @@ bool validCommand(string line)
 
 void evalCommand(string line)
 {
+    Inventory user("AmazonData.csv");
     if (line == ":help")
     {
         printHelp();
@@ -29,13 +28,21 @@ void evalCommand(string line)
     else if (line.rfind("find", 0) == 0)
     {
         // Look up the appropriate datastructure to find if the inventory exist
-        cout << "YET TO IMPLEMENT!" << endl;
+        stringstream holder(line);
+        getline(holder,line,' ');
+        getline(holder,line);
+
+        user.find(line);
     }
     // if line starts with listInventory
     else if (line.rfind("listInventory") == 0)
     {
         // Look up the appropriate datastructure to find all inventory belonging to a specific category
-        cout << "YET TO IMPLEMENT!" << endl;
+         stringstream holder(line);
+        getline(holder,line,' ');
+        getline(holder,line);
+        user.listInventory(line);
+
     }
 }
 
